@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saroj Chaudhary - Modern Portfolio</title>
+    <meta name="description" content="Computer Science Engineer | Web Developer | Cybersecurity Enthusiast">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+        <p class="loading-text">Loading Portfolio...</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Saroj</span>
+                <span class="logo-accent">.</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles-container">
+            <canvas id="particles-canvas"></canvas>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-greeting">
+                    <span class="greeting-text">Hello, I'm</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="name-text">Saroj Chaudhary</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text"></span>
+                </div>
+                <p class="hero-description">
+                    Passionate Computer Science Engineer crafting secure digital experiences 
+                    through innovative web development and cybersecurity solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Let's Connect</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="#" class="social-link" data-tooltip="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" data-tooltip="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" data-tooltip="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" data-tooltip="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="profile-container">
+                    <div class="profile-ring"></div>
+                    <div class="profile-ring-2"></div>
+                    <div class="profile-pic">
+                        <img src="https://via.placeholder.com/300x300/667eea/ffffff?text=Your+Photo" alt="Saroj Chaudhary">
+                    </div>
+                    <div class="floating-icons">
+                        <div class="floating-icon" style="--delay: 0s">⚡</div>
+                        <div class="floating-icon" style="--delay: 1s">🔒</div>
+                        <div class="floating-icon" style="--delay: 2s">💻</div>
+                        <div class="floating-icon" style="--delay: 3s">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">01.</span>
+                About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <p class="about-intro">
+                        I'm a passionate Computer Science Engineering student at 
+                        <span class="highlight">Vel Tech University</span>, currently based in 
+                        <span class="highlight">Pune, Maharashtra</span>. My journey in technology 
+                        is driven by curiosity and a desire to create meaningful digital experiences.
+                    </p>
+                    <p>
+                        I specialize in building secure web applications and exploring cybersecurity 
+                        solutions. From developing multifactor authentication systems to creating 
+                        automated hardware solutions, I enjoy tackling complex challenges that 
+                        bridge the gap between innovation and security.
+                    </p>
+                    <p>
+                        When I'm not coding, you'll find me exploring the latest tech trends, 
+                        contributing to open-source projects, or researching emerging cybersecurity 
+                        threats. I believe in continuous learning and sharing knowledge with the 
+                        tech community.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="7">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-label">Research Papers</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>B.Tech Computer Science</h3>
+                                <p>Vel Tech University</p>
+                                <span class="timeline-date">2022 - 2026</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Machine Learning Python</h3>
+                                <p>Coursera Certification</p>
+                                <span class="timeline-date">2024</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Cybersecurity Fundamentals</h3>
+                                <p>Cisco Networking Academy</p>
+                                <span class="timeline-date">2024</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Research Publication</h3>
+                                <p>ICOCT 2025 Conference</p>
+                                <span class="timeline-date">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">02.</span>
+                Technical Skills
+            </h2>
+            <div class="skills-container">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-skill="javascript">
+                            <div class="skill-icon">⚡</div>
+                            <h4>JavaScript</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-card" data-skill="python">
+                            <div class="skill-icon">🐍</div>
+                            <h4>Python</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-card" data-skill="java">
+                            <div class="skill-icon">☕</div>
+                            <h4>Java</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="75"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card" data-skill="cpp">
+                            <div class="skill-icon">⚙️</div>
+                            <h4>C++</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="70"></div>
+                            </div>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Web Technologies</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-skill="html">
+                            <div class="skill-icon">🌐</div>
+                            <h4>HTML5</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="90"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-card" data-skill="css">
+                            <div class="skill-icon">🎨</div>
+                            <h4>CSS3</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="85"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-card" data-skill="nodejs">
+                            <div class="skill-icon">🟢</div>
+                            <h4>Node.js</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="75"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card" data-skill="firebase">
+                            <div class="skill-icon">🔥</div>
+                            <h4>Firebase</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="70"></div>
+                            </div>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Specializations</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card" data-skill="cybersecurity">
+                            <div class="skill-icon">🔒</div>
+                            <h4>Cybersecurity</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="80"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-card" data-skill="ml">
+                            <div class="skill-icon">🤖</div>
+                            <h4>Machine Learning</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="65"></div>
+                            </div>
+                            <span class="skill-percent">65%</span>
+                        </div>
+                        <div class="skill-card" data-skill="mysql">
+                            <div class="skill-icon">🗄️</div>
+                            <h4>MySQL</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="75"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card" data-skill="cloud">
+                            <div class="skill-icon">☁️</div>
+                            <h4>Cloud Computing</h4>
+                            <div class="skill-progress">
+                                <div class="progress-bar" data-percent="60"></div>
+                            </div>
+                            <span class="skill-percent">60%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">03.</span>
+                Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/667eea/ffffff?text=Project+Manager+MFA" alt="Project Manager with MFA">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" data-tooltip="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" data-tooltip="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Project Manager with MFA</h3>
+                            <div class="project-status">
+                                <span class="status-badge featured">Featured</span>
+                                <span class="status-badge published">Published</span>
+                            </div>
+                        </div>
+                        <p>
+                            Advanced secure password storage system with OTP authentication, 
+                            built using modern web technologies. Accepted for presentation at 
+                            SCOPUS-indexed ICOCT 2025 conference.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>Conference Paper</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/764ba2/ffffff?text=Solar+Tracker" alt="Automatic Solar Tracker">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" data-tooltip="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" data-tooltip="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Automatic Solar Tracker</h3>
+                            <div class="project-status">
+                                <span class="status-badge hardware">Hardware</span>
+                            </div>
+                        </div>
+                        <p>
+                            Arduino-based automated solar tracking system that maximizes energy 
+                            efficiency by continuously adjusting panel positioning throughout the day 
+                            for optimal sun exposure.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Arduino</span>
+                            <span class="tech-tag">C Programming</span>
+                            <span class="tech-tag">Sensors</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-sun"></i>
+                                <span>Energy Optimization</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-cog"></i>
+                                <span>Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Cybersecurity+Tools" alt="Cybersecurity Tools">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" data-tooltip="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" data-tooltip="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Ethical Hacking Toolkit</h3>
+                            <div class="project-status">
+                                <span class="status-badge security">Security</span>
+                            </div>
+                        </div>
+                        <p>
+                            Comprehensive collection of cybersecurity tools and scripts for 
+                            penetration testing, vulnerability assessment, and security auditing 
+                            following ethical hacking principles.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Cybersecurity</span>
+                            <span class="tech-tag">Networking</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-bug"></i>
+                                <span>Vulnerability Testing</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Ethical Hacking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="title-number">04.</span>
+                Get In Touch
+            </h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-text">
+                        <h3>Let's Create Something Amazing Together</h3>
+                        <p>
+                            I'm always excited to discuss new opportunities, collaborate on 
+                            interesting projects, or simply connect with fellow tech enthusiasts. 
+                            Whether you have a project in mind or just want to say hello, 
+                            I'd love to hear from you!
+                        </p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>saroj.chaudhary@email.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Pune, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+91 123 456 7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="modern-contact-form" data-aos="fade-left">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">Your Message</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <div class="btn-ripple"></div>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Saroj Chaudhary. Crafted with ❤️ and lots of ☕</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
