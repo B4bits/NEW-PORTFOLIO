@@ -1,593 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saroj Chaudhary - Modern Portfolio</title>
-    <meta name="description" content="Computer Science Engineer | Web Developer | Cybersecurity Enthusiast">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link href="styles.css" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Saroj Chaudhary — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream:  #F7F1F0;
+    --taupe:  #C3A6A0;
+    --rust:   #A15C38;
+    --dark:   #262220;
+    --mid:    #6b5550;
+    --light-taupe: #e8ddd9;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 48px;
+    background: rgba(247,241,240,0.93);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-taupe);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 20px;
+    color: var(--dark);
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--mid); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rust); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 60px;
+    padding: 120px 48px 80px;
+  }
+  .hero-left { opacity: 0; animation: fadeIn 1s 0.3s forwards; }
+  .hero-eyebrow {
+    font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--rust); margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(50px, 5.5vw, 76px);
+    font-weight: 300; line-height: 1.05;
+    color: var(--dark); margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: italic; color: var(--rust); }
+  .divider { width: 48px; height: 1px; background: var(--rust); margin: 24px 0; }
+  .hero-desc {
+    font-size: 15px; line-height: 1.8;
+    color: var(--mid); max-width: 400px; margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    text-decoration: none; padding: 14px 30px;
+    border: 1px solid var(--rust); color: var(--rust);
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn:hover { background: var(--rust); color: var(--cream); }
+  .btn-fill { background: var(--rust); color: var(--cream); }
+  .btn-fill:hover { background: transparent; color: var(--rust); }
+
+  /* Hero right decorative */
+  .hero-right {
+    position: relative; height: 500px;
+    opacity: 0; animation: fadeIn 1s 0.6s forwards;
+  }
+  .hero-bg-block {
+    position: absolute; top: 40px; right: 0;
+    width: 72%; height: 82%;
+    background: var(--taupe); opacity: 0.25;
+  }
+  .hero-main-block {
+    position: absolute; top: 0; left: 0;
+    width: 78%; height: 86%;
+    background: var(--light-taupe);
+    padding: 32px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .stat-row { display: flex; gap: 36px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 300;
+    color: var(--dark); line-height: 1;
+  }
+  .stat-label {
+    font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--mid); margin-top: 4px;
+  }
+  .hero-badge {
+    position: absolute; bottom: 0; right: 0;
+    background: var(--rust); color: var(--cream);
+    padding: 18px 22px;
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 48px; }
+  .section-label {
+    font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--rust);
+    display: flex; align-items: center; gap: 20px;
+    margin-bottom: 48px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--light-taupe);
+  }
+  .dark-section { background: var(--dark); }
+  .dark-section .section-label { color: var(--taupe); }
+  .dark-section .section-label::after { background: #3a3230; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px; background: var(--light-taupe);
+    border: 1px solid var(--light-taupe);
+  }
+  .skill-group {
+    background: var(--cream); padding: 28px 22px;
+    transition: background 0.3s;
+  }
+  .skill-group:hover { background: var(--rust); }
+  .skill-group:hover h4, .skill-group:hover li { color: var(--cream); }
+  .skill-group h4 {
+    font-size: 9px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 16px; transition: color 0.3s;
+  }
+  .skill-group ul { list-style: none; }
+  .skill-group li {
+    font-size: 13px; color: var(--mid);
+    padding: 5px 0; border-bottom: 1px solid var(--light-taupe);
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .skill-group:hover li { border-color: rgba(247,241,240,0.15); }
+  .skill-group li:last-child { border: none; }
+
+  /* PROJECTS */
+  .project-card {
+    display: grid; grid-template-columns: 70px 1fr; gap: 32px;
+    padding: 36px 0; border-bottom: 1px solid var(--light-taupe);
+    transition: padding-left 0.3s;
+  }
+  .project-card:hover { padding-left: 10px; }
+  .project-card:last-child { border-bottom: none; }
+  .proj-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; font-weight: 300;
+    color: var(--light-taupe); line-height: 1;
+  }
+  .proj-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px; font-weight: 400;
+    color: var(--dark); margin-bottom: 10px; line-height: 1.2;
+  }
+  .proj-body p {
+    font-size: 14px; line-height: 1.8;
+    color: var(--mid); margin-bottom: 18px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 9px; letter-spacing: 0.16em;
+    text-transform: uppercase; padding: 5px 12px;
+    border: 1px solid var(--taupe); color: var(--mid);
+  }
+  .tag-rust { border-color: var(--rust); color: var(--rust); }
+
+  /* PUBLICATION */
+  .pub-card {
+    border: 1px solid #3a3230; padding: 40px; max-width: 740px;
+  }
+  .pub-badge {
+    display: inline-block; background: var(--rust);
+    color: var(--cream); font-size: 9px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 6px 14px; margin-bottom: 20px;
+  }
+  .pub-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; font-style: italic;
+    color: var(--cream); margin-bottom: 14px; line-height: 1.3;
+  }
+  .pub-card p { font-size: 13px; line-height: 1.8; color: var(--taupe); }
+  .pub-meta { font-size: 11px !important; color: #5a4a47 !important; margin-top: 16px; }
+
+  /* CERTIFICATIONS */
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .cert-item {
+    border: 1px solid var(--light-taupe); padding: 22px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    background: var(--cream);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .cert-item:hover { border-color: var(--rust); transform: translateY(-2px); }
+  .cert-dot {
+    width: 6px; height: 6px; background: var(--rust);
+    border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+  }
+  .cert-body strong {
+    display: block; font-size: 13px; font-weight: 500;
+    color: var(--dark); margin-bottom: 4px;
+  }
+  .cert-body span {
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--taupe);
+  }
+
+  /* EDUCATION */
+  .edu-card {
+    border-left: 2px solid var(--rust); padding-left: 36px; max-width: 680px;
+  }
+  .edu-date {
+    font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--rust); margin-bottom: 10px;
+  }
+  .edu-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 400; color: var(--cream); margin-bottom: 4px;
+  }
+  .edu-school { font-size: 13px; color: var(--taupe); margin-bottom: 6px; }
+  .edu-gpa {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--rust); margin-bottom: 20px;
+  }
+
+  /* CONTACT BAND */
+  .contact-band {
+    background: var(--rust); padding: 80px 48px;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 36px;
+  }
+  .contact-band h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px); font-weight: 300;
+    font-style: italic; color: var(--cream); line-height: 1.1;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link {
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--cream); opacity: 0.75;
+    display: flex; align-items: center; gap: 14px;
+    transition: opacity 0.2s;
+  }
+  .contact-link::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--cream);
+  }
+  .contact-link:hover { opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer span { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); }
+  .f-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--taupe) !important; }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 18px 24px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+    .hero-right { display: none; }
+    section { padding: 60px 24px; }
+    .contact-band { padding: 60px 24px; }
+    footer { flex-direction: column; gap: 10px; padding: 20px 24px; text-align: center; }
+    .project-card { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-    
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading">
-        <div class="loader">
-            <div class="loader-inner"></div>
-        </div>
-        <p class="loading-text">Loading Portfolio...</p>
+
+<nav>
+  <span class="nav-logo">saroj chaudhary</span>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publication">Publication</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Portfolio · 2025 · Kathmandu, Nepal</p>
+    <h1>Backend<br/>Developer<br/><em>&amp; Security</em><br/>Engineer</h1>
+    <div class="divider"></div>
+    <p class="hero-desc">
+      B.Tech CSE graduate with a SCOPUS-indexed research publication in secure systems.
+      Building reliable backends and security-conscious applications.
+    </p>
+    <div class="hero-btns">
+      <a class="btn btn-fill" href="mailto:saroj.nov10@gmail.com">Get in Touch</a>
+      <a class="btn" href="https://www.linkedin.com/in/saroj-chaudhareei/" target="_blank">LinkedIn ↗</a>
     </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Saroj</span>
-                <span class="logo-accent">.</span>
-            </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-block"></div>
+    <div class="hero-main-block">
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-num">8.3</div>
+          <div class="stat-label">CGPA / 10</div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="particles-container">
-            <canvas id="particles-canvas"></canvas>
+        <div class="stat">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Certifications</div>
         </div>
-        <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-greeting">
-                    <span class="greeting-text">Hello, I'm</span>
-                </div>
-                <h1 class="hero-title">
-                    <span class="name-text">Saroj Chaudhary</span>
-                    <span class="cursor">|</span>
-                </h1>
-                <div class="hero-subtitle">
-                    <span class="typing-text"></span>
-                </div>
-                <p class="hero-description">
-                    Passionate Computer Science Engineer crafting secure digital experiences 
-                    through innovative web development and cybersecurity solutions.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span>Let's Connect</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </a>
-                </div>
-                <div class="hero-social">
-                    <a href="#" class="social-link" data-tooltip="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="social-link" data-tooltip="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link" data-tooltip="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link" data-tooltip="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image" data-aos="fade-left">
-                <div class="profile-container">
-                    <div class="profile-ring"></div>
-                    <div class="profile-ring-2"></div>
-                    <div class="profile-pic">
-                        <img src="https://via.placeholder.com/300x300/667eea/ffffff?text=Your+Photo" alt="Saroj Chaudhary">
-                    </div>
-                    <div class="floating-icons">
-                        <div class="floating-icon" style="--delay: 0s">⚡</div>
-                        <div class="floating-icon" style="--delay: 1s">🔒</div>
-                        <div class="floating-icon" style="--delay: 2s">💻</div>
-                        <div class="floating-icon" style="--delay: 3s">🚀</div>
-                    </div>
-                </div>
-            </div>
+        <div class="stat">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Projects</div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-        </div>
-    </section>
+      </div>
+    </div>
+    <div class="hero-badge">SCOPUS Published · 2025</div>
+  </div>
+</div>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="title-number">01.</span>
-                About Me
-            </h2>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <p class="about-intro">
-                        I'm a passionate Computer Science Engineering student at 
-                        <span class="highlight">Vel Tech University</span>, currently based in 
-                        <span class="highlight">Pune, Maharashtra</span>. My journey in technology 
-                        is driven by curiosity and a desire to create meaningful digital experiences.
-                    </p>
-                    <p>
-                        I specialize in building secure web applications and exploring cybersecurity 
-                        solutions. From developing multifactor authentication systems to creating 
-                        automated hardware solutions, I enjoy tackling complex challenges that 
-                        bridge the gap between innovation and security.
-                    </p>
-                    <p>
-                        When I'm not coding, you'll find me exploring the latest tech trends, 
-                        contributing to open-source projects, or researching emerging cybersecurity 
-                        threats. I believe in continuous learning and sharing knowledge with the 
-                        tech community.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="15">0</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="7">0</div>
-                            <div class="stat-label">Technologies</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="1">0</div>
-                            <div class="stat-label">Research Papers</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual" data-aos="fade-left">
-                    <div class="education-timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>B.Tech Computer Science</h3>
-                                <p>Vel Tech University</p>
-                                <span class="timeline-date">2022 - 2026</span>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>Machine Learning Python</h3>
-                                <p>Coursera Certification</p>
-                                <span class="timeline-date">2024</span>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>Cybersecurity Fundamentals</h3>
-                                <p>Cisco Networking Academy</p>
-                                <span class="timeline-date">2024</span>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h3>Research Publication</h3>
-                                <p>ICOCT 2025 Conference</p>
-                                <span class="timeline-date">2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <div class="skills-grid reveal">
+    <div class="skill-group"><h4>Languages</h4><ul><li>Python</li><li>Java</li><li>JavaScript</li><li>C++</li></ul></div>
+    <div class="skill-group"><h4>Web & Backend</h4><ul><li>Node.js</li><li>HTML / CSS</li><li>Firebase</li></ul></div>
+    <div class="skill-group"><h4>Databases</h4><ul><li>MySQL</li><li>MongoDB</li><li>Firebase</li></ul></div>
+    <div class="skill-group"><h4>Cybersecurity</h4><ul><li>Ethical Hacking</li><li>Cryptography</li><li>Network Security</li></ul></div>
+    <div class="skill-group"><h4>Tools</h4><ul><li>Git / GitHub</li><li>Arduino</li><li>Google Cloud</li></ul></div>
+  </div>
+</section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="title-number">02.</span>
-                Technical Skills
-            </h2>
-            <div class="skills-container">
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Programming Languages</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-skill="javascript">
-                            <div class="skill-icon">⚡</div>
-                            <h4>JavaScript</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="85"></div>
-                            </div>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-card" data-skill="python">
-                            <div class="skill-icon">🐍</div>
-                            <h4>Python</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="80"></div>
-                            </div>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-card" data-skill="java">
-                            <div class="skill-icon">☕</div>
-                            <h4>Java</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="75"></div>
-                            </div>
-                            <span class="skill-percent">75%</span>
-                        </div>
-                        <div class="skill-card" data-skill="cpp">
-                            <div class="skill-icon">⚙️</div>
-                            <h4>C++</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="70"></div>
-                            </div>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                    </div>
-                </div>
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--cream);">
+  <p class="section-label">Projects</p>
+  <div class="project-card reveal">
+    <div class="proj-num">01</div>
+    <div class="proj-body">
+      <h3>Password Manager with Multi-Factor Authentication</h3>
+      <p>Secure web application for storing and retrieving passwords with OTP-based MFA and strong encryption. Includes a Password Strength Assessment feature. Accepted and presented at IEEE ICOCT 2025, indexed in SCOPUS.</p>
+      <div class="tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">HTML / CSS / JS</span>
+        <span class="tag tag-rust">SCOPUS Published</span>
+      </div>
+    </div>
+  </div>
+  <div class="project-card reveal">
+    <div class="proj-num">02</div>
+    <div class="proj-body">
+      <h3>Automatic Solar Tracker</h3>
+      <p>Arduino-based real-time solar tracking system using LDR sensors and servo motors to dynamically orient solar panels toward sunlight. Improves energy efficiency by 20–30% vs fixed setups. Led all hardware, sensor, and embedded programming.</p>
+      <div class="tags">
+        <span class="tag">Arduino</span>
+        <span class="tag">C</span>
+        <span class="tag">LDR Sensors</span>
+        <span class="tag">Servo Motors</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Web Technologies</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-skill="html">
-                            <div class="skill-icon">🌐</div>
-                            <h4>HTML5</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="90"></div>
-                            </div>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="skill-card" data-skill="css">
-                            <div class="skill-icon">🎨</div>
-                            <h4>CSS3</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="85"></div>
-                            </div>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-card" data-skill="nodejs">
-                            <div class="skill-icon">🟢</div>
-                            <h4>Node.js</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="75"></div>
-                            </div>
-                            <span class="skill-percent">75%</span>
-                        </div>
-                        <div class="skill-card" data-skill="firebase">
-                            <div class="skill-icon">🔥</div>
-                            <h4>Firebase</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="70"></div>
-                            </div>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                    </div>
-                </div>
+<!-- PUBLICATION -->
+<section id="publication" class="dark-section">
+  <p class="section-label">Publication</p>
+  <div class="pub-card reveal">
+    <span class="pub-badge">SCOPUS Indexed · IEEE ICOCT 2025</span>
+    <h3>Password Manager with Multi-Factor Authentication</h3>
+    <p>Presented at the 2025 International Conference on Computing Technologies (IEEE ICOCT). Published by Jyothy Institute of Technology, Bengaluru. Covers secure password storage, OTP-based MFA, encryption, and password strength validation.</p>
+    <p class="pub-meta">Authors: Saroj Chaudhary, Avishek Roy, Ayush Krishanan, Dharmateja M.</p>
+  </div>
+</section>
 
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Specializations</h3>
-                    <div class="skills-grid">
-                        <div class="skill-card" data-skill="cybersecurity">
-                            <div class="skill-icon">🔒</div>
-                            <h4>Cybersecurity</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="80"></div>
-                            </div>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-card" data-skill="ml">
-                            <div class="skill-icon">🤖</div>
-                            <h4>Machine Learning</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="65"></div>
-                            </div>
-                            <span class="skill-percent">65%</span>
-                        </div>
-                        <div class="skill-card" data-skill="mysql">
-                            <div class="skill-icon">🗄️</div>
-                            <h4>MySQL</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="75"></div>
-                            </div>
-                            <span class="skill-percent">75%</span>
-                        </div>
-                        <div class="skill-card" data-skill="cloud">
-                            <div class="skill-icon">☁️</div>
-                            <h4>Cloud Computing</h4>
-                            <div class="skill-progress">
-                                <div class="progress-bar" data-percent="60"></div>
-                            </div>
-                            <span class="skill-percent">60%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <p class="section-label">Certifications</p>
+  <div class="certs-grid reveal">
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Cyber Security &amp; Applied Ethical Hacking</strong><span>Infosys Springboard</span></div></div>
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Cybersecurity Essentials</strong><span>Cisco</span></div></div>
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Introduction to Networks</strong><span>Cisco</span></div></div>
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Machine Learning using Python</strong><span>Coursera</span></div></div>
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Foundations of Cybersecurity</strong><span>Coursera</span></div></div>
+    <div class="cert-item"><div class="cert-dot"></div><div class="cert-body"><strong>Google Cloud Computing Foundations</strong><span>NPTEL</span></div></div>
+  </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="title-number">03.</span>
-                Featured Projects
-            </h2>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/667eea/ffffff?text=Project+Manager+MFA" alt="Project Manager with MFA">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" data-tooltip="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Project Manager with MFA</h3>
-                            <div class="project-status">
-                                <span class="status-badge featured">Featured</span>
-                                <span class="status-badge published">Published</span>
-                            </div>
-                        </div>
-                        <p>
-                            Advanced secure password storage system with OTP authentication, 
-                            built using modern web technologies. Accepted for presentation at 
-                            SCOPUS-indexed ICOCT 2025 conference.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>Conference Paper</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Security Focus</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- EDUCATION -->
+<section class="dark-section">
+  <p class="section-label">Education</p>
+  <div class="edu-card reveal">
+    <p class="edu-date">May 2021 – June 2025 · Chennai, India</p>
+    <h3>B.Tech — Computer Science &amp; Engineering</h3>
+    <p class="edu-school">Vel Tech University</p>
+    <p class="edu-gpa">8.3 / 10</p>
+    <div class="tags">
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">DSA</span>
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">Ethical Hacking</span>
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">Cyber Security</span>
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">Web Development</span>
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">Machine Learning</span>
+      <span class="tag" style="border-color:#3a3230;color:var(--taupe);">DBMS</span>
+    </div>
+  </div>
+</section>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/764ba2/ffffff?text=Solar+Tracker" alt="Automatic Solar Tracker">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" data-tooltip="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Automatic Solar Tracker</h3>
-                            <div class="project-status">
-                                <span class="status-badge hardware">Hardware</span>
-                            </div>
-                        </div>
-                        <p>
-                            Arduino-based automated solar tracking system that maximizes energy 
-                            efficiency by continuously adjusting panel positioning throughout the day 
-                            for optimal sun exposure.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Arduino</span>
-                            <span class="tech-tag">C Programming</span>
-                            <span class="tech-tag">Sensors</span>
-                            <span class="tech-tag">IoT</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-sun"></i>
-                                <span>Energy Optimization</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-cog"></i>
-                                <span>Automation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- CONTACT -->
+<div class="contact-band" id="contact">
+  <h2>Let's work<br/>together.</h2>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:saroj.nov10@gmail.com">saroj.nov10@gmail.com</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/saroj-chaudhareei/" target="_blank">LinkedIn Profile</a>
+    <a class="contact-link" href="tel:+9779849388129">+977 984 938 8129</a>
+  </div>
+</div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x250/f093fb/ffffff?text=Cybersecurity+Tools" alt="Cybersecurity Tools">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" data-tooltip="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" data-tooltip="GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Ethical Hacking Toolkit</h3>
-                            <div class="project-status">
-                                <span class="status-badge security">Security</span>
-                            </div>
-                        </div>
-                        <p>
-                            Comprehensive collection of cybersecurity tools and scripts for 
-                            penetration testing, vulnerability assessment, and security auditing 
-                            following ethical hacking principles.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Cybersecurity</span>
-                            <span class="tech-tag">Networking</span>
-                            <span class="tech-tag">Linux</span>
-                        </div>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-bug"></i>
-                                <span>Vulnerability Testing</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-user-shield"></i>
-                                <span>Ethical Hacking</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+  <span>© 2025 Saroj Chaudhary</span>
+  <span class="f-logo">saroj chaudhary</span>
+  <span>Kathmandu, Nepal</span>
+</footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="title-number">04.</span>
-                Get In Touch
-            </h2>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-text">
-                        <h3>Let's Create Something Amazing Together</h3>
-                        <p>
-                            I'm always excited to discuss new opportunities, collaborate on 
-                            interesting projects, or simply connect with fellow tech enthusiasts. 
-                            Whether you have a project in mind or just want to say hello, 
-                            I'd love to hear from you!
-                        </p>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>saroj.chaudhary@email.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Pune, Maharashtra, India</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>+91 123 456 7890</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="modern-contact-form" data-aos="fade-left">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Full Name</label>
-                        <div class="input-highlight"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Email Address</label>
-                        <div class="input-highlight"></div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required>
-                        <label for="subject">Subject</label>
-                        <div class="input-highlight"></div>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" required></textarea>
-                        <label for="message">Your Message</label>
-                        <div class="input-highlight"></div>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span class="btn-text">Send Message</span>
-                        <div class="btn-ripple"></div>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 Saroj Chaudhary. Crafted with ❤️ and lots of ☕</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">Privacy Policy</a>
-                    <a href="#" class="footer-link">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
